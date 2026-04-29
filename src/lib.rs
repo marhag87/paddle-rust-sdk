@@ -1267,6 +1267,10 @@ impl Paddle {
             _ => builder,
         };
 
+        let text = builder.send().await?.text().await?;
+        tracing::debug!(text);
+        let res = serde_json::from_str::<Response<T>>(&text)?;
+
         // Uncomment this to see the raw text response
         // let text = builder.send().await?.text().await?;
         // println!("{}", text);
@@ -1281,7 +1285,7 @@ impl Paddle {
         // // println!("{}", serde_json::to_string(&res["data"]).unwrap());
         // todo!();
 
-        let res: Response<_> = builder.send().await?.json().await?;
+        // let res: Response<_> = builder.send().await?.json().await?;
 
         match res {
             Response::Success(success) => Ok(success),

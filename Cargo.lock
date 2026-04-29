@@ -1439,6 +1439,7 @@ dependencies = [
  "sha2",
  "strum",
  "tokio",
+ "tracing",
  "url",
 ]
 

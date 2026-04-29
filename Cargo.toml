@@ -41,6 +41,7 @@ serde_with.workspace = true
 sha2 = "0.11"
 hmac = "0.13"
 strum = { workspace = true, optional = true }
+tracing = "0.1"
 
 [dev-dependencies]
 tokio = { version = "1", features = ["full"] }
