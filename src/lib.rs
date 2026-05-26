@@ -1254,6 +1254,7 @@ impl Paddle {
         if method == reqwest::Method::GET {
             url.set_query(Some(&serde_qs::to_string(&req)?));
         }
+        tracing::debug!("url: {}", url);
 
         let mut builder = client
             .request(method.clone(), url)
